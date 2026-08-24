@@ -26,7 +26,7 @@ PACK_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 # deliberate act — bump ENGINE_COMMIT, run this locally against the new engine, and open a
 # merge request for it.
 #   Engine: https://github.com/yurgeno/taut · stack specialization (>= v0.3.0), pinned 2026-08-20
-ENGINE_COMMIT="${TAUT_ENGINE_COMMIT:-fb10d5f709f5d942610ac9c0aa0d3b0beadbdd5c}"
+ENGINE_COMMIT="${TAUT_ENGINE_COMMIT:-3d29772c987f60adc683adfcf4b99a7b7c977bcd}"
 ENGINE_URL="${TAUT_ENGINE_URL:-https://github.com/yurgeno/taut.git}"
 
 WORK="$(mktemp -d)"
