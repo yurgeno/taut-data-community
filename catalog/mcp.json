@@ -1,0 +1,34 @@
+{
+  "$comment": "TAUT catalog — MCP servers as DATA. serverKey MUST match the tool-name namespace artifacts reference (mcp__<serverKey>__*); env lists variable NAMES only — values live in each developer's .taut/local.env. Version pins are the catalog author's responsibility: verify against the upstream registry when bumping, and record the provenance in the commit message.",
+  "servers": {
+    "context7": {
+      "role": "docs",
+      "serverKey": "context7",
+      "package": "@upstash/context7-mcp",
+      "pin": "4.0.2",
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp@4.0.2"],
+      "env": ["CONTEXT7_API_KEY"],
+      "fixedEnv": {},
+      "tools": ["mcp__context7__resolve-library-id", "mcp__context7__query-docs"],
+      "usage": "Use it PROACTIVELY: the FIRST stop for any library/framework API question (`resolve-library-id` → `query-docs`); web search is the fallback, not the default."
+    },
+    "playwright": {
+      "role": "browser",
+      "serverKey": "playwright",
+      "package": "@playwright/mcp",
+      "pin": "0.0.79",
+      "command": "npx",
+      "args": ["-y", "@playwright/mcp@0.0.79"],
+      "env": [],
+      "fixedEnv": {},
+      "usage": "Browser automation for VERIFICATION of frontend changes — prefer `browser_snapshot` (accessibility tree) for checks, `browser_take_screenshot` only for human-facing evidence. An observation tool, not a data-entry channel: never enter credentials or real personal data. First run may need a one-time browser download (`browser_install`)."
+    }
+  },
+  "envHelp": {
+    "CONTEXT7_API_KEY": [
+      "Optional — higher rate limits. Create at https://context7.com/dashboard",
+      "leave empty to run without a key"
+    ]
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "$comment": "TAUT deployment TEMPLATE \u2014 rename this folder to your project's name and set `name` below to match (the compile enforces the equality). Structural keys (name/description/mode/repos) are consumed by setup; everything under `manifest` passes VERBATIM into the generated workspace manifest \u2014 including these $comment/note keys, which is deliberate: they document the values for the agents reading them. Guide: manual/GETTING-STARTED.md \u00b7 full reference: the engine's docs/PACK.md.",
+  "name": "starter",
+  "description": "Starter deployment (rename me) \u2014 your project on the TAUT base flow",
+  "mode": "normal",
+  "repos": {
+    "$comment": "Deliberately EMPTY: this pack is generic \u2014 setup scans your landscape root (two levels deep) and connects every repository it finds, then scaffolds a descriptor skeleton for each in the WORKSPACE (repos/<name>/descriptor.md). Add entries here only when you want to CURATE (a non-empty map connects only what it lists) or to declare a role/stack the file probes cannot guess: \"my-app\": { \"role\": \"the web front end\", \"stack\": [\"jvm\", \"android\"] }.",
+    "mandatory": [],
+    "known": {}
+  },
+  "manifest": {
+    "defaults": {
+      "languages": {
+        "chat": "auto"
+      },
+      "$comment": "chat: \"auto\" = the session mirrors the language the developer writes in; replace with a fixed code (\"en\", \"cs\", \u2026) or an {options, default} choice to add a setup question."
+    },
+    "note": "This bag ships verbatim into the workspace manifest. Grow it when a real driver appears \u2014 conventional blocks: flow.tracker (your ticket system's pattern and access mode), modelTiers (the model ladder \u2014 engine docs/PACK.md par.8), stacks (runbook-backed run recipes). Starting minimal is the feature, not the gap."
+  }
+}

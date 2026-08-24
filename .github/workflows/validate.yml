@@ -1,0 +1,18 @@
+# Compile-validation on every push and PR — the only check that proves a pack change is
+# safe. Runs the same script developers run locally, against the PINNED engine commit.
+name: validate
+on:
+  push:
+  pull_request:
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Secret-shape scan
+        run: tools/scan-secrets.sh
+      - name: Compile every project against the pinned engine
+        run: tools/validate-pack.sh
