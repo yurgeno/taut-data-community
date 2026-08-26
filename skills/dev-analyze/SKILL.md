@@ -56,11 +56,11 @@ for f in analysis implementation review; do [ -e "$D/$f.md" ] || : > "$D/$f.md";
 2. **Locate the affected area.** Start from the workspace's repo knowledge: the
    manifest's `repos[]` roles, then `.taut/repos/<repo>/` descriptors for the
    candidates. Only then read code.
-<!-- atlas:on -->
-3. **Consult Atlas first** (`atlas lookup` against the relevant store) per the trust
+<!-- kaut:on -->
+3. **Consult KAUT first** (`kaut lookup` against the relevant store) per the trust
    hierarchy: distilled docs carry freshness verdicts — a healthy doc routes you,
    a stale one warns you. Confirm anything load-bearing in code.
-<!-- atlas:end -->
+<!-- kaut:end -->
 4. **Ground every claim.** A conclusion drawn from reading code is a HYPOTHESIS until
    confirmed against runtime behavior or a test; label each finding `confirmed` (how)
    or `hypothesis` (what would confirm it). Reading under-determines live behavior.

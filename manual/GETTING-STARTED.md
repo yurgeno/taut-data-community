@@ -49,7 +49,7 @@ node taut/taut.mjs setup
 
 The questionnaire asks for: the data pack (defaults to the sibling), the deployment
 (`starter` — or your renamed project), the workspace folder, your repos (auto-scanned from the landscape root),
-the harness(es), Atlas (pick *disable* if you don't know what it is), the workspace
+the harness(es), KAUT (pick *disable* if you don't know what it is), the workspace
 mode, the telemetry level (stored ONLY on your machine, never sent anywhere), and the
 skills/MCP checklists — pick **all** skills to get the drop-in contract
 (new pack skills auto-install on `update`).

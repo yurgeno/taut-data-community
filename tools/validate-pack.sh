@@ -95,9 +95,9 @@ for project in "${projects[@]}"; do
     echo "stub repos: $repo_count"
   fi
 
-  # An Atlas stub keeps Atlas-dependent skills in the compile — without it they are
+  # A KAUT stub keeps KAUT-dependent skills in the compile — without it they are
   # silently skipped and never validated.
-  mkdir -p "$land/atlas-stub" && printf '// stub\n' > "$land/atlas-stub/atlas.mjs"
+  mkdir -p "$land/kaut-stub" && printf '// stub\n' > "$land/kaut-stub/kaut.mjs"
 
   # Built by node, not by string interpolation: paths and project names reach the file as
   # correctly escaped JSON whatever characters they contain.
@@ -108,7 +108,7 @@ for project in "${projects[@]}"; do
       workspace: `${land}/ws`,
       repos: "scan",
       harnesses: ["claude-code", "codex"],
-      atlas: `${land}/atlas-stub`,
+      kaut: `${land}/kaut-stub`,
       skills: "all",
       mcp: "all",
     }, null, 2));

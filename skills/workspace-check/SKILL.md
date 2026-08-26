@@ -34,7 +34,7 @@ skill in this session.
 ## 1. Inventory — what "everything" means here
 
 Read `manifest.json`: `skills`, `agents`, `repoDocs`, `flowDocs`, `docs`, `repos`, `mcp`,
-`mode`, `atlas.enabled`. Every entry must be covered below — nothing sampled, nothing
+`mode`, `kaut.enabled`. Every entry must be covered below — nothing sampled, nothing
 skipped in silence. Anything you cannot cover is UNKNOWN with the reason, never "passing".
 
 ## 2. Descriptor coverage (the question this skill exists for)
@@ -95,24 +95,24 @@ reconnect MCP or restart the session so the server relaunches with the filled va
 No MCP servers configured? Report "mcp: none configured" — that is a valid state, not a
 failure.
 
-<!-- atlas:on -->
-## 6. Atlas
+<!-- kaut:on -->
+## 6. KAUT
 
-Atlas is enabled here. From a member-repo root (store resolution is cwd-based) run only
+KAUT (formerly Atlas) is enabled here. From a member-repo root (store resolution is cwd-based) run only
 READ verbs — `paths`, `doctor`, `lookup`, `stale` — never anything that writes to a store.
 Report: does the binding resolve, are the stores healthy, does one live `lookup` render a
 doc with its freshness verdict. Per-doc `stale` verdicts are INFORMATION (the machinery
 working), `broken` / `tampered` are ✖ — report, never repair.
-<!-- atlas:off -->
-## 6. Atlas
+<!-- kaut:off -->
+## 6. KAUT
 
 Disabled in this workspace — confirm no installed skill requires it and report
-"atlas: not applicable".
-<!-- atlas:end -->
+"kaut: not applicable".
+<!-- kaut:end -->
 
 ## Report
 
-A table per area (engine sweep · descriptors · repos · toolchain · MCP · atlas), each row
+A table per area (engine sweep · descriptors · repos · toolchain · MCP · kaut), each row
 ✔ / ! / ✖ with one line of evidence — the command run or the file read. Then the verdict:
 
 - **READY** — practical work can start.

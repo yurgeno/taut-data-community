@@ -8,7 +8,7 @@ for the common moves on THIS template. Validate after every change:
 
 Copy a `skills/<name>/SKILL.md` file into the pack — shared root `skills/` for
 every-project skills, `<project>/skills/` for project-only ones. The skill declares its
-own wiring in frontmatter (`metadata.taut`: agents it needs, `requires: [atlas]`,
+own wiring in frontmatter (`metadata.taut`: agents it needs, `requires: [kaut]`,
 `repos` bindings, `mcp` roles); there is no registry to edit and `deployment.json` is
 not involved. A workspace with the **all** skills selection installs it on its next
 `node ui update`, already passed through the capability and stack gates. Don't want one

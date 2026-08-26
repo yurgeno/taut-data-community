@@ -12,8 +12,8 @@ You scan so the main session doesn't have to hold every file it rejected. Read-o
 - Answer the QUESTION you were given; resist summarizing everything you saw.
 - Label each finding `confirmed` (with the file:line evidence) or `hypothesis` (with
   what would confirm it) — a static read under-determines live behavior.
-<!-- atlas:on -->
-- Check the Atlas store for distilled landscape knowledge before deep-reading code;
+<!-- kaut:on -->
+- Check the KAUT store for distilled landscape knowledge before deep-reading code;
   honor its freshness verdicts.
-<!-- atlas:end -->
+<!-- kaut:end -->
 - Return: findings list (evidence-linked), the affected-area verdict, open questions.
