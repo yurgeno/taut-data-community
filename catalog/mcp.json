@@ -1,34 +1,75 @@
 {
-  "$comment": "TAUT catalog — MCP servers as DATA. serverKey MUST match the tool-name namespace artifacts reference (mcp__<serverKey>__*); env lists variable NAMES only — values live in each developer's .taut/local.env. Version pins are the catalog author's responsibility: verify against the upstream registry when bumping, and record the provenance in the commit message.",
-  "servers": {
-    "context7": {
-      "role": "docs",
-      "serverKey": "context7",
-      "package": "@upstash/context7-mcp",
-      "pin": "4.0.2",
-      "command": "npx",
-      "args": ["-y", "@upstash/context7-mcp@4.0.2"],
-      "env": ["CONTEXT7_API_KEY"],
-      "fixedEnv": {},
-      "tools": ["mcp__context7__resolve-library-id", "mcp__context7__query-docs"],
-      "usage": "Use it PROACTIVELY: the FIRST stop for any library/framework API question (`resolve-library-id` → `query-docs`); web search is the fallback, not the default."
+    "$comment": "TAUT catalog — MCP servers as DATA. serverKey MUST match the tool-name namespace artifacts reference (mcp__<serverKey>__*); env lists variable NAMES only — values live in each developer's .taut/local.env. Version pins are the catalog author's responsibility: verify against the upstream registry when bumping, and record the provenance in the commit message.",
+    "servers": {
+        "context7": {
+            "role": "docs",
+            "serverKey": "context7",
+            "package": "@upstash/context7-mcp",
+            "pin": "4.0.2",
+            "command": "npx",
+            "args": [
+                "-y",
+                "@upstash/context7-mcp@4.0.2"
+            ],
+            "env": [
+                "CONTEXT7_API_KEY"
+            ],
+            "fixedEnv": {},
+            "tools": [
+                "mcp__context7__resolve-library-id",
+                "mcp__context7__query-docs"
+            ],
+            "usage": "Use it PROACTIVELY: the FIRST stop for any library/framework API question (`resolve-library-id` → `query-docs`); web search is the fallback, not the default."
+        },
+        "playwright": {
+            "role": "browser",
+            "serverKey": "playwright",
+            "package": "@playwright/mcp",
+            "pin": "0.0.79",
+            "command": "npx",
+            "args": [
+                "-y",
+                "@playwright/mcp@0.0.79"
+            ],
+            "env": [],
+            "fixedEnv": {},
+            "usage": "Browser automation for VERIFICATION of frontend changes — prefer `browser_snapshot` (accessibility tree) for checks, `browser_take_screenshot` only for human-facing evidence. An observation tool, not a data-entry channel: never enter credentials or real personal data. First run may need a one-time browser download (`browser_install`)."
+        },
+        "kaut": {
+            "role": "knowledge",
+            "serverKey": "kaut",
+            "package": "KAUT knowledge engine (github.com/yurgeno/kaut, local clone)",
+            "pin": "v0.8.1 (verify: cat <kaut>/VERSION)",
+            "command": "node",
+            "args": [
+                "--input-type=module",
+                "-e",
+                "await import('file://' + ((process.env.KAUT_ENGINE ?? process.env.HOME + '/.kaut') + '/mcp.mjs'))"
+            ],
+            "env": [
+                "KAUT_ENGINE"
+            ],
+            "fixedEnv": {},
+            "tools": [
+                "mcp__kaut__kaut_lookup",
+                "mcp__kaut__kaut_note",
+                "mcp__kaut__kaut_refresh",
+                "mcp__kaut__kaut_touched",
+                "mcp__kaut__kaut_write",
+                "mcp__kaut__kaut_draft",
+                "mcp__kaut__kaut_status"
+            ]
+        }
     },
-    "playwright": {
-      "role": "browser",
-      "serverKey": "playwright",
-      "package": "@playwright/mcp",
-      "pin": "0.0.79",
-      "command": "npx",
-      "args": ["-y", "@playwright/mcp@0.0.79"],
-      "env": [],
-      "fixedEnv": {},
-      "usage": "Browser automation for VERIFICATION of frontend changes — prefer `browser_snapshot` (accessibility tree) for checks, `browser_take_screenshot` only for human-facing evidence. An observation tool, not a data-entry channel: never enter credentials or real personal data. First run may need a one-time browser download (`browser_install`)."
+    "envHelp": {
+        "CONTEXT7_API_KEY": [
+            "Optional — higher rate limits. Create at https://context7.com/dashboard",
+            "leave empty to run without a key"
+        ],
+        "KAUT_ENGINE": [
+            "Path to the KAUT engine clone (the folder holding kaut.mjs/mcp.mjs).",
+            "Compiled in automatically when setup runs with KAUT enabled — the engine",
+            "resolves its own knowledge-data location (`kaut home`), nothing else to pass."
+        ]
     }
-  },
-  "envHelp": {
-    "CONTEXT7_API_KEY": [
-      "Optional — higher rate limits. Create at https://context7.com/dashboard",
-      "leave empty to run without a key"
-    ]
-  }
 }

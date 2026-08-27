@@ -52,7 +52,9 @@ The questionnaire asks for: the data pack (defaults to the sibling), the deploym
 the harness(es), KAUT (pick *disable* if you don't know what it is), the workspace
 mode, the telemetry level (stored ONLY on your machine, never sent anywhere), and the
 skills/MCP checklists — pick **all** skills to get the drop-in contract
-(new pack skills auto-install on `update`).
+(new pack skills auto-install on `update`). If you enabled KAUT, also tick the `kaut`
+MCP server in the checklist — that is what puts the knowledge tools into every session
+(the engine folder you gave is compiled in as `KAUT_ENGINE`).
 
 ## 4. Teach the workspace your repositories
 
