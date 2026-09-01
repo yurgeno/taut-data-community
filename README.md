@@ -73,4 +73,4 @@ capability and stack gates. That is the whole procedure.
 
 ## License
 
-Apache-2.0. Contributions welcome — see [CONTRIBUTING.md](CONTRIBUTING.md).
+[Apache-2.0](LICENSE). Contributions welcome — see [CONTRIBUTING.md](CONTRIBUTING.md).
