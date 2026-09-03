@@ -1,0 +1,28 @@
+name: Feature request
+description: A skill, stack branch, agent, or manual this pack should ship
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: The problem
+      description: What you are trying to do on your project and where the pack currently stops you.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed content
+      description: >-
+        The skill / stack branch / manual section you have in mind. For a new toolchain,
+        say which mechanics differ (build, test, run, layout) — that is what a branch carries.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: >-
+        Note: anything project-specific (names, laws, deployment values, private runbooks)
+        belongs in your own pack, not here — see manual/ADAPTING.md. Engine capabilities
+        belong in the engine repository.

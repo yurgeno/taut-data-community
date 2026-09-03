@@ -1,5 +1,13 @@
 # taut-data-community
 
+[![validate](https://github.com/yurgeno/taut-data-community/actions/workflows/validate.yml/badge.svg)](https://github.com/yurgeno/taut-data-community/actions/workflows/validate.yml)
+[![release](https://img.shields.io/github/v/release/yurgeno/taut-data-community)](https://github.com/yurgeno/taut-data-community/releases)
+[![license](https://img.shields.io/badge/license-Apache--2.0-blue)](LICENSE)
+[![template](https://img.shields.io/badge/template-use%20this%20pack-2ea043)](https://github.com/yurgeno/taut-data-community/generate)
+[![engine](https://img.shields.io/badge/built%20for-TAUT-informational)](https://github.com/yurgeno/taut)
+![stacks](https://img.shields.io/badge/stacks-node%20%7C%20jvm%20%7C%20php%20%7C%20%E2%80%A6-lightgrey)
+![secrets](https://img.shields.io/badge/secrets%20in%20pack-0-success)
+
 The **community starter data pack** for [TAUT](https://github.com/yurgeno/taut)
 (Toolchain Actualization Under Trust). TAUT compiles a harness-neutral data pack —
 skills, agents, laws, MCP pins, per-repo knowledge — into a locked, integrity-gated

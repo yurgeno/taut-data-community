@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Security vulnerability
+    url: https://github.com/yurgeno/taut-data-community/blob/master/SECURITY.md
+    about: Credential values in the pack, or a skill that leaks secrets — report privately, not as an issue.
+  - name: Engine bug (compiler, gate, panel)
+    url: https://github.com/yurgeno/taut/issues/new/choose
+    about: If the problem is in TAUT itself rather than in this pack's content, file it in the engine repository.

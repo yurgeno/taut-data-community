@@ -1,0 +1,59 @@
+name: Bug report
+description: A skill, agent, manual, or template in this pack compiles or behaves wrong
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you did, what you got. Paste the exact command and output.
+      placeholder: |
+        tools/validate-pack.sh
+        → FAILED: ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Minimal reproduction
+      description: >-
+        Smallest deployment / answers file / sequence of commands that shows it. The
+        bundled starter deployment (starter/) is a good base.
+  - type: input
+    id: pack
+    attributes:
+      label: Pack commit or release
+      placeholder: v0.1.0
+    validations:
+      required: true
+  - type: input
+    id: engine
+    attributes:
+      label: TAUT engine commit or release
+      placeholder: v0.5.0
+    validations:
+      required: true
+  - type: input
+    id: env
+    attributes:
+      label: Node version, OS, harness(es)
+      placeholder: node 24.2.0 · macOS 15 · claude-code + codex
+  - type: input
+    id: stacks
+    attributes:
+      label: Stack branches compiled for your repos
+      placeholder: node + jvm
+  - type: markdown
+    attributes:
+      value: >-
+        **Is it the compiler, the integrity gate, or the panel misbehaving rather than
+        this pack's content?** File it in the
+        [engine repository](https://github.com/yurgeno/taut/issues/new/choose).
+        **Found credential values in the pack?** Report privately per
+        [SECURITY.md](../blob/master/SECURITY.md) instead of filing an issue.
