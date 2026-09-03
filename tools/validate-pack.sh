@@ -26,9 +26,9 @@ PACK_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 # green pipeline could turn red without a single change in this pack. Raising the pin is a
 # deliberate act — bump ENGINE_COMMIT, run this locally against the new engine, and open a
 # merge request for it.
-#   Engine: https://github.com/yurgeno/taut · v0.7.0 harness capability registry + `taut render`
-#           (https://github.com/yurgeno/taut/releases/tag/v0.7.0), pinned 2026-09-03
-ENGINE_COMMIT="${TAUT_ENGINE_COMMIT:-74f09962b210c8b0020ba6913c63b0074fb861ea}"
+#   Engine: https://github.com/yurgeno/taut · v0.7.1 harness capability registry + `taut render`
+#           (https://github.com/yurgeno/taut/releases/tag/v0.7.1), pinned 2026-09-03
+ENGINE_COMMIT="${TAUT_ENGINE_COMMIT:-88d06f1dd0983c44c3b03ab6a3690185ec6abccb}"
 ENGINE_URL="${TAUT_ENGINE_URL:-https://github.com/yurgeno/taut.git}"
 
 WORK="$(mktemp -d)"
