@@ -25,8 +25,8 @@ PACK_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 # green pipeline could turn red without a single change in this pack. Raising the pin is a
 # deliberate act — bump ENGINE_COMMIT, run this locally against the new engine, and open a
 # merge request for it.
-#   Engine: https://github.com/yurgeno/taut · v0.5.0 KAUT rename, pinned 2026-08-26
-ENGINE_COMMIT="${TAUT_ENGINE_COMMIT:-2565a6b1440fc8d05080d9e69db836a03735e18a}"
+#   Engine: https://github.com/yurgeno/taut · v0.6.0 Python stack detection, pinned 2026-09-03
+ENGINE_COMMIT="${TAUT_ENGINE_COMMIT:-171bf7000e31db074193570ada7e05ead0f38570}"
 ENGINE_URL="${TAUT_ENGINE_URL:-https://github.com/yurgeno/taut.git}"
 
 WORK="$(mktemp -d)"

@@ -117,6 +117,20 @@ runnable checks. Framework entry points differ (Nette: `app/Bootstrap.php` + DI 
 in `config/*.neon`; Laravel: `routes/` + providers; Symfony: `config/` + attributes) —
 identify the framework first, from composer dependencies.
 <!-- stack-php:end -->
+<!-- stack-python:on -->
+**python:** the manifest is the map — `pyproject.toml` (`[project]` dependencies,
+`[project.scripts]` entry points, `[tool.*]` tables = which linters/type-checkers the
+repo really configures) or `requirements*.txt` / `setup.cfg` / `Pipfile` in older layouts;
+the lock file (`uv.lock`, `poetry.lock`, `pdm.lock`, `Pipfile.lock`) names the package
+manager. Code sits at the root or under `src/` — a `src/` layout is importable only once
+installed (`uv sync` / `pip install -e .`) or with `PYTHONPATH=src`, never by guessing.
+Django starts from `manage.py` → `settings.py`, apps declare themselves in `apps.py`,
+URLs live in `urls.py` (`path`, `include`, DRF routers); FastAPI/Flask routes are
+decorators (`@app.get`, `@router.post`, `@app.route`). A plain-script repo has no
+manifest — read the `if __name__ == "__main__":` blocks. Trace by dotted import path and
+`__init__.py` re-exports, not by file name (module = file, package = directory with
+`__init__.py`); check `requires-python` before relying on syntax.
+<!-- stack-python:end -->
 
 <!-- mcp-docs:on -->
 Library/framework API questions: resolve with the docs MCP first

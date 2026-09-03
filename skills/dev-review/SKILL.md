@@ -84,6 +84,15 @@ instrumented tests were actually RUN: they are the ones CI most often skips.
 surfaces (raw SQL, unescaped output) in the touched paths; error suppression (`@`)
 introduced by the diff; config/DI changes consistent with the framework's conventions.
 <!-- stack-php:end -->
+<!-- stack-python:on -->
+**python:** typing at the new boundaries (`Any`, missing return types, `# type: ignore`
+introduced by the diff); mutable default arguments and mutable class-level state;
+resources closed (`with` for files and connections) and `async` calls actually awaited;
+exception handling that swallows (`except Exception: pass`); manifest and lock changed
+together (`pyproject.toml` vs `uv.lock` / `poetry.lock`) or neither; Django: a migration
+for every model change, reversible; tests placed where the runner finds them (`tests/`,
+`test_*.py`, `conftest.py` fixtures) and not skipped by a stale marker.
+<!-- stack-python:end -->
 
 ## The owner gate
 

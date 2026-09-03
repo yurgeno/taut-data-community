@@ -99,6 +99,18 @@ analysis (`phpstan`/`psalm`) at the project's configured level is part of done, 
 optional. Never edit `vendor/`; `composer.lock` changes only when a dependency change
 is the task.
 <!-- stack-php:end -->
+<!-- stack-python:on -->
+**python:** work inside the project's own environment, never the system interpreter:
+with a `pyproject.toml` + `uv.lock` that is `uv sync` once and `uv run <cmd>` for every
+command below; otherwise a venv (`python -m venv .venv` or `uv venv`) with the pinned
+requirements installed. The loop, cheapest first: `ruff check .` (lint) → `ruff format
+--check .` (only where the repo already formats with ruff) → `mypy <package>` (or the
+type checker the repo configures in `[tool.*]`) → `pytest -q` (`-x` stops at the first
+failure, `-k <expr>` narrows; `src/` layouts need the package installed or
+`PYTHONPATH=src`). No test suite at all (a scripts repo)? At least `python -m compileall
+-q .` and `python -m unittest discover` before handing back. Never edit a lock file by
+hand — `uv lock` / `poetry lock` regenerate it, as a separate reviewable change.
+<!-- stack-python:end -->
 
 <!-- mcp-docs:on -->
 Unfamiliar API mid-change: resolve with the docs MCP (`resolve-library-id` →

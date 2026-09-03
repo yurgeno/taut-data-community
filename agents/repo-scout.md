@@ -13,7 +13,8 @@ You never edit a file in the repo, never commit, never push.
 Method:
 
 1. **Build files first** — `package.json`, `pom.xml`, `build.gradle(.kts)`,
-   `composer.json`, lockfiles, CI workflows. CI is the most honest documentation of how
+   `composer.json`, `pyproject.toml` / `requirements*.txt` / `setup.cfg` / `Pipfile`,
+   lockfiles, CI workflows. CI is the most honest documentation of how
    the project is really built: what CI runs, works.
 2. **Then layout** — the load-bearing directories, the entry points, where tests live.
    Name paths with line numbers when you claim something specific.
