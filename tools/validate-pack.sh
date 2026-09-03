@@ -14,6 +14,7 @@
 # Usage:
 #   tools/validate-pack.sh                      # fetches the PINNED engine commit
 #   TAUT_ENGINE=~/taut tools/validate-pack.sh   # uses a local engine checkout instead
+#   SAUT=~/saut tools/validate-pack.sh          # adds the SAUT lint step (advisory; SAUT_STRICT=1 enforces)
 #
 # Requires Node >= 24 and git.
 set -euo pipefail
@@ -123,6 +124,19 @@ for project in "${projects[@]}"; do
   node "$ENGINE/taut.mjs" verify --workspace "$land/ws" \
     || fail "$project: artifact verification failed"
 done
+
+# Optional: the SAUT privilege/correctness lint over the pack sources (github.com/yurgeno/saut).
+# Runs only when SAUT points at a checkout; its findings are REPORTED, not enforced, unless
+# SAUT_STRICT=1 — the pack's own compile above stays the gate that decides a merge.
+if [ -n "${SAUT:-}" ]; then
+  step "SAUT lint (privileges, allowlists, cost)"
+  SAUT_DIR="$(cd "${SAUT/#\~/$HOME}" && pwd)"
+  if [ "${SAUT_STRICT:-0}" = "1" ]; then
+    node "$SAUT_DIR/saut.mjs" lint "$PACK_ROOT" --taut "$ENGINE" || fail "SAUT lint reported high findings (SAUT_STRICT=1)"
+  else
+    node "$SAUT_DIR/saut.mjs" lint "$PACK_ROOT" --taut "$ENGINE" || echo "(SAUT findings above are advisory — set SAUT_STRICT=1 to enforce)"
+  fi
+fi
 
 step "Result"
 echo "OK — every project in this pack compiles and verifies."
