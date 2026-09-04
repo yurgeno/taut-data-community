@@ -28,7 +28,7 @@ PACK_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 # merge request for it.
 #   Engine: https://github.com/yurgeno/taut · v0.7.1 harness capability registry + `taut render`
 #           (https://github.com/yurgeno/taut/releases/tag/v0.7.1), pinned 2026-09-03
-ENGINE_COMMIT="${TAUT_ENGINE_COMMIT:-d8c486a3eefcaf65328381539ac9e500e87dbd5b}"
+ENGINE_COMMIT="${TAUT_ENGINE_COMMIT:-4237175c297028e95ce351461012ddc2bd099f74}"
 ENGINE_URL="${TAUT_ENGINE_URL:-https://github.com/yurgeno/taut.git}"
 
 WORK="$(mktemp -d)"
